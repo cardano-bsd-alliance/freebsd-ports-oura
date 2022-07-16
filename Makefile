@@ -13,6 +13,8 @@ USES=		cargo
 USE_GITHUB=	yes
 GH_ACCOUNT=	txpipe
 
+USE_RC_SUBR=	oura
+
 CARGO_CRATES=	addr2line-0.17.0 \
 		adler-1.0.2 \
 		aho-corasick-0.7.18 \
