@@ -70,7 +70,7 @@ oura_prestart()
 oura_start()
 {
     check_startmsgs && echo "Starting ${name}."
-    cd $cardano_node_home && /usr/sbin/daemon -p $pidfile -o ${logfile} \
+    cd $oura_home && /usr/sbin/daemon -p $pidfile -o ${logfile} \
         ${command} ${flags} 2>&1 > /dev/null
 }
 
