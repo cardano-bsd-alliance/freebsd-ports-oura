@@ -1,6 +1,6 @@
 PORTNAME=		oura
 DISTVERSIONPREFIX=	v
-DISTVERSION=		1.5.2
+DISTVERSION=		1.5.3
 CATEGORIES=		net-p2p
 
 MAINTAINER=		boris@zfs.ninja
@@ -167,14 +167,14 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		openssl-src-111.17.0+1.1.1m \
 		openssl-sys-0.9.73 \
 		os_str_bytes-6.0.0 \
-		pallas-0.11.0 \
-		pallas-addresses-0.11.0 \
-		pallas-codec-0.11.0 \
-		pallas-crypto-0.11.0 \
-		pallas-miniprotocols-0.11.0 \
-		pallas-multiplexer-0.11.0 \
-		pallas-primitives-0.11.0 \
-		pallas-traverse-0.11.1 \
+		pallas-0.13.1 \
+		pallas-addresses-0.13.1 \
+		pallas-codec-0.13.1 \
+		pallas-crypto-0.13.1 \
+		pallas-miniprotocols-0.13.1 \
+		pallas-multiplexer-0.13.1 \
+		pallas-primitives-0.13.1 \
+		pallas-traverse-0.13.1 \
 		parking_lot-0.11.2 \
 		parking_lot-0.12.0 \
 		parking_lot_core-0.8.5 \
