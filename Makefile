@@ -7,11 +7,11 @@ MAINTAINER=		boris@zfs.ninja
 COMMENT=		A pipeline that connects to the tip of a Cardano node
 WWW=		https://txpipe.github.io/oura/
 
-NOT_FOR_ARCHS=	i386
-NOT_FOR_ARCHS_REASON=	requires AVX on x86
-
 LICENSE=		APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
+
+NOT_FOR_ARCHS=	i386
+NOT_FOR_ARCHS_REASON=	requires AVX on x86
 
 USES=		cargo
 USE_GITHUB=	yes
