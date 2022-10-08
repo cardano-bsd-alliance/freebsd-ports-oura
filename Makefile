@@ -1,13 +1,18 @@
 PORTNAME=		oura
 DISTVERSIONPREFIX=	v
-DISTVERSION=		1.5.3
+DISTVERSION=		1.7.1
+PORTREVISION=	1
 CATEGORIES=		net-p2p
 
 MAINTAINER=		boris@zfs.ninja
 COMMENT=		A pipeline that connects to the tip of a Cardano node
+WWW=		https://txpipe.github.io/oura/
+
+NOT_FOR_ARCHS=	i386
+NOT_FOR_ARCHS_REASON=	requires AVX on x86
 
 LICENSE=		APACHE20
-LICENSE_FILE_APACHE20=	${WRKSRC}/LICENSE
+LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		cargo
 USE_GITHUB=	yes
@@ -18,40 +23,42 @@ USE_RC_SUBR=	oura
 CARGO_CRATES=	addr2line-0.17.0 \
 		adler-1.0.2 \
 		aho-corasick-0.7.18 \
+		android_system_properties-0.1.5 \
 		arc-swap-1.5.0 \
 		ascii-1.0.0 \
-		async-compression-0.3.12 \
+		async-compression-0.3.14 \
 		async-trait-0.1.52 \
 		atty-0.2.14 \
 		autocfg-1.1.0 \
-		aws-config-0.12.0 \
-		aws-endpoint-0.12.0 \
-		aws-http-0.12.0 \
-		aws-sdk-lambda-0.12.0 \
-		aws-sdk-s3-0.12.0 \
-		aws-sdk-sqs-0.12.0 \
-		aws-sdk-sso-0.12.0 \
-		aws-sdk-sts-0.12.0 \
-		aws-sig-auth-0.12.0 \
-		aws-sigv4-0.12.0 \
-		aws-smithy-async-0.42.0 \
-		aws-smithy-client-0.42.0 \
-		aws-smithy-eventstream-0.42.0 \
-		aws-smithy-http-0.42.0 \
-		aws-smithy-http-tower-0.42.0 \
-		aws-smithy-json-0.42.0 \
-		aws-smithy-query-0.42.0 \
-		aws-smithy-types-0.42.0 \
-		aws-smithy-xml-0.42.0 \
-		aws-types-0.12.0 \
+		aws-config-0.14.0 \
+		aws-endpoint-0.14.0 \
+		aws-http-0.14.0 \
+		aws-sdk-lambda-0.14.0 \
+		aws-sdk-s3-0.14.0 \
+		aws-sdk-sqs-0.14.0 \
+		aws-sdk-sso-0.14.0 \
+		aws-sdk-sts-0.14.0 \
+		aws-sig-auth-0.14.0 \
+		aws-sigv4-0.14.0 \
+		aws-smithy-async-0.44.0 \
+		aws-smithy-client-0.44.0 \
+		aws-smithy-eventstream-0.44.0 \
+		aws-smithy-http-0.44.0 \
+		aws-smithy-http-tower-0.44.0 \
+		aws-smithy-json-0.44.0 \
+		aws-smithy-query-0.44.0 \
+		aws-smithy-types-0.44.0 \
+		aws-smithy-xml-0.44.0 \
+		aws-types-0.14.0 \
 		backtrace-0.3.64 \
 		base-x-0.2.8 \
 		base58-0.2.0 \
 		base64-0.11.0 \
 		base64-0.13.0 \
 		bech32-0.8.1 \
-		bech32-0.9.0 \
+		bech32-0.9.1 \
 		bitflags-1.3.2 \
+		block-buffer-0.10.3 \
 		build_const-0.2.2 \
 		bumpalo-3.9.1 \
 		byteorder-0.5.3 \
@@ -61,27 +68,28 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		cc-1.0.72 \
 		cfg-if-0.1.10 \
 		cfg-if-1.0.0 \
-		chrono-0.4.19 \
+		chrono-0.4.22 \
 		chunked_transfer-1.4.0 \
-		clap-3.1.18 \
-		clap_lex-0.2.0 \
+		clap-3.2.20 \
+		clap_lex-0.2.4 \
 		cloud-pubsub-0.8.0 \
 		combine-4.6.4 \
-		config-0.13.1 \
+		config-0.13.2 \
 		const_fn-0.4.9 \
 		core-foundation-0.9.3 \
 		core-foundation-sys-0.8.3 \
 		crc-1.8.1 \
 		crc32fast-1.3.2 \
-		crossterm-0.23.2 \
+		crossterm-0.25.0 \
 		crossterm_winapi-0.9.0 \
+		crypto-common-0.1.6 \
 		cryptoxide-0.4.2 \
 		ct-logs-0.8.0 \
 		darling-0.13.1 \
 		darling_core-0.13.1 \
 		darling_macro-0.13.1 \
+		digest-0.10.3 \
 		discard-1.0.4 \
-		dtoa-0.4.8 \
 		dyn-clone-1.0.4 \
 		either-1.6.1 \
 		elasticsearch-7.14.0-alpha.1 \
@@ -89,7 +97,7 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		env_logger-0.9.0 \
 		error-chain-0.10.0 \
 		fastrand-1.7.0 \
-		file-rotate-0.6.0 \
+		file-rotate-0.7.0 \
 		flate2-0.2.20 \
 		flate2-1.0.22 \
 		fnv-1.0.7 \
@@ -105,6 +113,7 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		futures-sink-0.3.21 \
 		futures-task-0.3.21 \
 		futures-util-0.3.21 \
+		generic-array-0.14.6 \
 		getrandom-0.2.4 \
 		gimli-0.26.1 \
 		goauth-0.9.0 \
@@ -119,26 +128,27 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		httparse-1.6.0 \
 		httpdate-1.0.2 \
 		humantime-2.1.0 \
-		hyper-0.14.17 \
+		hyper-0.14.20 \
 		hyper-rustls-0.22.1 \
 		hyper-tls-0.5.0 \
+		iana-time-zone-0.1.47 \
 		ident_case-1.0.1 \
 		idna-0.2.3 \
 		indexmap-1.8.0 \
 		instant-0.1.12 \
 		ipnet-2.3.1 \
 		itertools-0.10.3 \
-		itoa-0.4.8 \
 		itoa-1.0.1 \
-		js-sys-0.3.56 \
+		js-sys-0.3.59 \
 		kafka-0.8.0 \
 		lazy_static-1.4.0 \
-		libc-0.2.121 \
+		libc-0.2.132 \
+		linked-hash-map-0.5.6 \
 		lock_api-0.4.6 \
 		log-0.3.9 \
 		log-0.4.17 \
 		matches-0.1.9 \
-		md5-0.7.0 \
+		md-5-0.10.4 \
 		memchr-2.4.1 \
 		merge-0.1.0 \
 		merge_derive-0.1.0 \
@@ -148,26 +158,24 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		minimal-lexical-0.2.1 \
 		miniz-sys-0.1.12 \
 		miniz_oxide-0.4.4 \
-		mio-0.8.2 \
-		miow-0.3.7 \
+		mio-0.8.4 \
 		murmur3-0.5.1 \
 		native-tls-0.2.8 \
 		net2-0.2.37 \
 		nom-7.1.0 \
-		ntapi-0.3.6 \
 		num-integer-0.1.44 \
 		num-traits-0.2.14 \
 		num_cpus-1.13.1 \
 		num_threads-0.1.3 \
 		object-0.27.1 \
-		once_cell-1.10.0 \
-		openssl-0.10.40 \
+		once_cell-1.14.0 \
+		openssl-0.10.41 \
 		openssl-macros-0.1.0 \
 		openssl-probe-0.1.5 \
-		openssl-src-111.17.0+1.1.1m \
-		openssl-sys-0.9.73 \
+		openssl-src-111.22.0+1.1.1q \
+		openssl-sys-0.9.75 \
 		os_str_bytes-6.0.0 \
-		pallas-0.13.1 \
+		pallas-0.13.2 \
 		pallas-addresses-0.13.1 \
 		pallas-codec-0.13.1 \
 		pallas-crypto-0.13.1 \
@@ -192,19 +200,19 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		proc-macro-hack-0.5.19 \
 		proc-macro2-1.0.36 \
 		prometheus-0.13.0 \
-		prometheus_exporter-0.8.4 \
+		prometheus_exporter-0.8.5 \
 		quote-1.0.15 \
 		rand-0.8.4 \
 		rand_chacha-0.3.1 \
 		rand_core-0.6.3 \
 		rand_hc-0.3.1 \
-		redis-0.21.5 \
+		redis-0.21.6 \
 		redox_syscall-0.2.10 \
 		ref_slice-1.2.1 \
 		regex-1.5.6 \
 		regex-syntax-0.6.26 \
 		remove_dir_all-0.5.3 \
-		reqwest-0.11.10 \
+		reqwest-0.11.11 \
 		ring-0.16.20 \
 		rustc-demangle-0.1.21 \
 		rustc_version-0.2.3 \
@@ -221,9 +229,9 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		semver-0.9.0 \
 		semver-1.0.6 \
 		semver-parser-0.7.0 \
-		serde-1.0.137 \
-		serde_derive-1.0.137 \
-		serde_json-1.0.81 \
+		serde-1.0.144 \
+		serde_derive-1.0.144 \
+		serde_json-1.0.85 \
 		serde_urlencoded-0.7.1 \
 		serde_with-1.12.0 \
 		serde_with_macros-1.5.1 \
@@ -246,8 +254,8 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		stdweb-internal-macros-0.2.9 \
 		stdweb-internal-runtime-0.1.5 \
 		strsim-0.10.0 \
-		strum-0.24.0 \
-		strum_macros-0.24.0 \
+		strum-0.24.1 \
+		strum_macros-0.24.3 \
 		syn-1.0.92 \
 		tempfile-3.3.0 \
 		termcolor-1.1.2 \
@@ -263,7 +271,7 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		tiny_http-0.10.0 \
 		tinyvec-1.5.1 \
 		tinyvec_macros-0.1.0 \
-		tokio-1.18.2 \
+		tokio-1.21.0 \
 		tokio-native-tls-0.3.0 \
 		tokio-rustls-0.22.0 \
 		tokio-stream-0.1.8 \
@@ -278,8 +286,11 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		tracing-core-0.1.22 \
 		try-lock-0.2.3 \
 		twox-hash-1.6.2 \
+		typenum-1.15.0 \
 		unicode-bidi-0.3.7 \
 		unicode-normalization-0.1.19 \
+		unicode-truncate-0.2.0 \
+		unicode-width-0.1.9 \
 		unicode-xid-0.2.2 \
 		untrusted-0.7.1 \
 		url-2.2.2 \
@@ -290,12 +301,12 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		want-0.3.0 \
 		wasi-0.10.0+wasi-snapshot-preview1 \
 		wasi-0.11.0+wasi-snapshot-preview1 \
-		wasm-bindgen-0.2.79 \
-		wasm-bindgen-backend-0.2.79 \
+		wasm-bindgen-0.2.82 \
+		wasm-bindgen-backend-0.2.82 \
 		wasm-bindgen-futures-0.4.29 \
-		wasm-bindgen-macro-0.2.79 \
-		wasm-bindgen-macro-support-0.2.79 \
-		wasm-bindgen-shared-0.2.79 \
+		wasm-bindgen-macro-0.2.82 \
+		wasm-bindgen-macro-support-0.2.82 \
+		wasm-bindgen-shared-0.2.82 \
 		web-sys-0.3.56 \
 		webpki-0.21.4 \
 		winapi-0.3.9 \
@@ -303,13 +314,20 @@ CARGO_CRATES=	addr2line-0.17.0 \
 		winapi-util-0.1.5 \
 		winapi-x86_64-pc-windows-gnu-0.4.0 \
 		windows-sys-0.32.0 \
+		windows-sys-0.36.1 \
 		windows_aarch64_msvc-0.32.0 \
+		windows_aarch64_msvc-0.36.1 \
 		windows_i686_gnu-0.32.0 \
+		windows_i686_gnu-0.36.1 \
 		windows_i686_msvc-0.32.0 \
+		windows_i686_msvc-0.36.1 \
 		windows_x86_64_gnu-0.32.0 \
+		windows_x86_64_gnu-0.36.1 \
 		windows_x86_64_msvc-0.32.0 \
+		windows_x86_64_msvc-0.36.1 \
 		winreg-0.10.1 \
 		xmlparser-0.13.3 \
+		yaml-rust-0.4.5 \
 		zeroize-1.5.3
 
 PLIST_FILES=	bin/oura
