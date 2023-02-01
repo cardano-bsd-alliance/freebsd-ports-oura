@@ -1,6 +1,6 @@
 PORTNAME=		oura
 DISTVERSIONPREFIX=	v
-DISTVERSION=		1.7.2
+DISTVERSION=		1.8.0
 CATEGORIES=		net-p2p
 
 MAINTAINER=		boris@zfs.ninja
@@ -10,8 +10,8 @@ WWW=			https://txpipe.github.io/oura/
 LICENSE=		APACHE20
 LICENSE_FILE=		${WRKSRC}/LICENSE
 
-NOT_FOR_ARCHS=		i386
-NOT_FOR_ARCHS_REASON=	requires AVX on x86
+NOT_FOR_ARCHS=		i386 powerpc
+NOT_FOR_ARCHS_REASON=	requires AVX on x86 and https://github.com/tikv/rust-prometheus/issues/315 on powerpc
 
 USES=		cargo ssl
 USE_GITHUB=	yes
